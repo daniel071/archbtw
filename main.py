@@ -47,4 +47,9 @@ async def accountAge(ctx, member: discord.Member):
 
 	await ctx.send(message)
 
+
+@bot.command()
+async def isDown(ctx, *, arg)
+    pass
+
 bot.run(os.getenv('TOKEN'))
