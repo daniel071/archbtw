@@ -50,6 +50,6 @@ async def accountAge(ctx, member: discord.Member):
 
 @bot.command()
 async def isDown(ctx, *, arg)
-    pass
+    pass 
 
 bot.run(os.getenv('TOKEN'))
