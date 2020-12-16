@@ -1,6 +1,8 @@
 import os
 import discord
 import datetime
+from urllib.request import Request, urlopen
+from urllib.error import URLError, HTTPError
 from datetime import date
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -49,7 +51,17 @@ async def accountAge(ctx, member: discord.Member):
 
 
 @bot.command()
-async def isDown(ctx, *, arg)
-    pass 
+async def isDown(ctx, arg):
+    pass
+    req = Request(arg)
+    try:
+        response = urlopen(req)
+    except HTTPError as e:
+        await ctx.send(":x: {website} is down!".format(website=arg))
+    except URLError as e:
+        await ctx.send(":x: {website} is down!".format(website=arg))
+    else:
+        await ctx.send(":white_check_mark: {website} is up!".format(website=arg))
+
 
 bot.run(os.getenv('TOKEN'))
